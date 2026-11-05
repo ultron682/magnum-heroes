@@ -35,7 +35,7 @@ float fbm(vec2 p) {
 vec3 world(sampler2D terrain, sampler2D sky, sampler2D clouds, sampler2D cloth, sampler2D data, vec2 scale, vec2 uv, float cloudMix) {
   vec2 base = (uv - .5) * scale + .5;
   float depth = texture2D(data, base).b;
-  vec2 q = base + par * (depth - .35) * .03;
+  vec2 q = base + par * vec2(.01, .02) * (depth - .35);
   vec4 d = texture2D(data, q);
 
   vec2 tq = q;
